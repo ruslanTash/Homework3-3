@@ -1,7 +1,10 @@
 package Transport;
 
-public class Car extends Transport implements Competable{
+public class Car extends Transport<DriverB> implements Competable {
 
+    public Car(String brand, String model, double engineVolume, DriverB driver) {
+        super(brand, model, engineVolume, driver);
+    }
 
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -26,7 +29,7 @@ public class Car extends Transport implements Competable{
     public void bestLapTime() {
         int minBound = 40;
         int maxBound = 140;
-        int best = (int)(minBound + (maxBound - minBound) * Math.random());
+        int best = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лушчее время круга Трака " + getBrand() + " " + best + " сек.");
     }
 
@@ -34,7 +37,7 @@ public class Car extends Transport implements Competable{
     public void maxSpeed() {
         int minBound = 120;
         int maxBound = 160;
-        int best = (int)(minBound + (maxBound - minBound) * Math.random());
+        int best = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лушчая скорость Трака " + getBrand() + " " + best + " км/ч.");
     }
 

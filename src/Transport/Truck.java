@@ -1,7 +1,9 @@
 package Transport;
 
-public class Truck extends Transport implements Competable{
-    private double defaultEngineVolume = 5;
+public class Truck extends Transport<DriverC> implements Competable {
+    public Truck(String brand, String model, double engineVolume, DriverC driver) {
+        super(brand, model, engineVolume, driver);
+    }
 
     public Truck(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
@@ -26,7 +28,7 @@ public class Truck extends Transport implements Competable{
     public void bestLapTime() {
         int minBound = 60;
         int maxBound = 180;
-        int best = (int)(minBound + (maxBound - minBound) * Math.random());
+        int best = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лушчее время круга Трака " + getBrand() + " " + best + " сек.");
     }
 
@@ -34,7 +36,7 @@ public class Truck extends Transport implements Competable{
     public void maxSpeed() {
         int minBound = 90;
         int maxBound = 130;
-        int best = (int)(minBound + (maxBound - minBound) * Math.random());
+        int best = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лушчая скорость Трака " + getBrand() + " " + best + " км/ч.");
     }
 }

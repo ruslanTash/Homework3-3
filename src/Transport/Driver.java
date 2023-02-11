@@ -37,4 +37,10 @@ public abstract class Driver {
         return name + ", наличие прав: " + hasLicense + ", стаж " + experience + " лет.";
     }
 
+    public abstract void startMoving();
+
+    public abstract void stopMoving();
+
+    public abstract void refuel();
+
 }
