@@ -2,12 +2,22 @@ package Transport;
 
 public class Car extends Transport<DriverB> implements Competable {
 
+    private Type type;
+
     public Car(String brand, String model, double engineVolume, DriverB driver) {
         super(brand, model, engineVolume, driver);
     }
 
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     @Override
@@ -18,6 +28,15 @@ public class Car extends Transport<DriverB> implements Competable {
     @Override
     public void stopMoving() {
         System.out.println("Автомобиль " + getBrand() + " закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (type == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getType());
+        }
     }
 
     @Override
@@ -39,6 +58,30 @@ public class Car extends Transport<DriverB> implements Competable {
         int maxBound = 160;
         int best = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лушчая скорость Трака " + getBrand() + " " + best + " км/ч.");
+    }
+
+    public enum Type {
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбэк"),
+        COUPE("Купе"),
+        UNIVERSAL("Универсал"),
+        SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+
+        private String bodyType;
+
+        Type(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+
+        @Override
+        public String toString() {
+            return "Тип кузова: " + bodyType;
+        }
     }
 
 

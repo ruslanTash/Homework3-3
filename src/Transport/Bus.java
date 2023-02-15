@@ -1,12 +1,22 @@
 package Transport;
 
 public class Bus extends Transport<DriverD> implements Competable {
+    private Type type;
+
     public Bus(String brand, String model, double engineVolume, DriverD driver) {
         super(brand, model, engineVolume, driver);
     }
 
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     @Override
@@ -17,6 +27,15 @@ public class Bus extends Transport<DriverD> implements Competable {
     @Override
     public void stopMoving() {
         System.out.println("Автобус " + getBrand() + " закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (type == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getType());
+        }
     }
 
     @Override
@@ -38,5 +57,33 @@ public class Bus extends Transport<DriverD> implements Competable {
         int maxBound = 120;
         int best = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лушчая скорость автобуса " + getBrand() + " " + best + " км/ч.");
+    }
+
+    public enum Type {
+        VERYSMALL(null, 10),
+        SMALL(10, 25),
+        AVERAGE(25, 50),
+        BIG(50, 80),
+        VERYBIG(80, null);
+
+
+        private Integer minCountofSeats;
+        private Integer maxCountOfSeats;
+
+        Type(Integer minCountofSeats, Integer maxCountOfSeats) {
+            this.minCountofSeats = minCountofSeats;
+            this.maxCountOfSeats = maxCountOfSeats;
+        }
+
+        @Override
+        public String toString() {
+            if (minCountofSeats == null) {
+                return "Вместимость: до " + maxCountOfSeats + " мест";
+            } else if (maxCountOfSeats == null) {
+                return "Вместимость: от " + minCountofSeats + " мест";
+            } else {
+                return "Вместимость: от " + minCountofSeats + " до " + maxCountOfSeats + " мест";
+            }
+        }
     }
 }
