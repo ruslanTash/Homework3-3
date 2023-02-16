@@ -1,6 +1,6 @@
 package Transport;
 
-public abstract class Transport <T extends Driver> implements Competable{
+public abstract class Transport<T extends Driver> implements Competable {
     private String delaultBrand = "default";
     private String defaultModel = "default";
     private double defaultEngineValume = 1.5;
@@ -23,7 +23,12 @@ public abstract class Transport <T extends Driver> implements Competable{
     }
 
     public abstract void startMoving();
+
     public abstract void stopMoving();
+
+    //    abstract enum Type();
+//    abstract Type getType();
+    abstract void printType();
 
     public T getDriver() {
         return driver;
@@ -48,6 +53,7 @@ public abstract class Transport <T extends Driver> implements Competable{
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
     }
+
 
     @Override
     public String toString() {

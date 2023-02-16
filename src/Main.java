@@ -39,5 +39,15 @@ public class Main {
         printInfo(truck1);
         printInfo(car3);
         printInfo(bus2);
+
+        car1.printType();
+        truck1.printType();
+        bus1.printType();
+
+        bus1.setType(Bus.Type.VERYBIG);
+        bus1.printType();
+        car2.setType(Car.Type.SEDAN);
+
+
     }
 }
