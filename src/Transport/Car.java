@@ -40,6 +40,11 @@ public class Car extends Transport<DriverB> implements Competable {
     }
 
     @Override
+    public void passDiagnostic() {
+        System.out.println(this.getBrand() + " проходит диагностику");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Автомобиль " + getBrand() + " заехал на пит-стоп");
     }

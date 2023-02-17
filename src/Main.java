@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Водитель " + transport.getDriver().getName() + " управляет автомобилем " + transport.getBrand() + " и будет учавтствовать в заезде");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception  {
         Car car1 = new Car("Lada", "Priora", 1.6);
         Car car2 = new Car("Lada", "Vesta", 1.8);
         Car car3 = new Car("Audi", "R10", 5.5);
@@ -26,27 +26,10 @@ public class Main {
         DriverC driverC = new DriverC("Хоук Линкольн Иванович", true, 15);
         DriverD driverD = new DriverD("Грагерт Александр Александрович", true, 10);
 
-        System.out.println(truck);
-        truck.pitStop();
-        truck1.maxSpeed();
-        System.out.println(driverD);
-        driverB.refuel();
 
-        truck1.setDriver(driverC);
-        car3.setDriver(driverB);
-        bus2.setDriver(driverD);
-
-        printInfo(truck1);
-        printInfo(car3);
-        printInfo(bus2);
-
-        car1.printType();
-        truck1.printType();
-        bus1.printType();
-
-        bus1.setType(Bus.Type.VERYBIG);
-        bus1.printType();
-        car2.setType(Car.Type.SEDAN);
+        car1.passDiagnostic();
+        truck2.passDiagnostic();
+        bus3.passDiagnostic();
 
 
     }
