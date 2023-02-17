@@ -41,9 +41,18 @@ public class Bus extends Transport<DriverD> implements Competable {
     }
 
     @Override
-    public void passDiagnostic() throws IOException {
-    throw new IOException("Aвтобусам проходить диагностику не нужно");
+    public void passDiagnostic() throws TransportTypeException {
+        exception();
     }
+
+    private void exception() throws TransportTypeException {
+        try {
+            throw new TransportTypeException();
+        } catch (TransportTypeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     @Override
     public void pitStop() {
@@ -93,4 +102,6 @@ public class Bus extends Transport<DriverD> implements Competable {
             }
         }
     }
+
+
 }

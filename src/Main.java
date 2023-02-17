@@ -5,7 +5,7 @@ public class Main {
         System.out.println("Водитель " + transport.getDriver().getName() + " управляет автомобилем " + transport.getBrand() + " и будет учавтствовать в заезде");
     }
 
-    public static void main(String[] args) throws Exception  {
+    public static void main(String[] args) throws TransportTypeException {
         Car car1 = new Car("Lada", "Priora", 1.6);
         Car car2 = new Car("Lada", "Vesta", 1.8);
         Car car3 = new Car("Audi", "R10", 5.5);
@@ -30,6 +30,7 @@ public class Main {
         car1.passDiagnostic();
         truck2.passDiagnostic();
         bus3.passDiagnostic();
+        truck4.passDiagnostic();
 
 
     }
