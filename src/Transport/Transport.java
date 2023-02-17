@@ -1,5 +1,7 @@
 package Transport;
 
+import java.io.IOException;
+
 public abstract class Transport<T extends Driver> implements Competable {
     private String delaultBrand = "default";
     private String defaultModel = "default";
@@ -29,6 +31,7 @@ public abstract class Transport<T extends Driver> implements Competable {
     //    abstract enum Type();
 //    abstract Type getType();
     abstract void printType();
+    abstract void passDiagnostic() throws IOException, TransportTypeException;
 
     public T getDriver() {
         return driver;

@@ -1,5 +1,7 @@
 package Transport;
 
+import java.io.IOException;
+
 public class Bus extends Transport<DriverD> implements Competable {
     private Type type;
 
@@ -37,6 +39,20 @@ public class Bus extends Transport<DriverD> implements Competable {
             System.out.println(getType());
         }
     }
+
+    @Override
+    public void passDiagnostic() throws TransportTypeException {
+        exception();
+    }
+
+    private void exception() throws TransportTypeException {
+        try {
+            throw new TransportTypeException();
+        } catch (TransportTypeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     @Override
     public void pitStop() {
@@ -86,4 +102,6 @@ public class Bus extends Transport<DriverD> implements Competable {
             }
         }
     }
+
+
 }
