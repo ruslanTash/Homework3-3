@@ -1,8 +1,15 @@
 package Transport;
 
+import java.util.List;
+
 public class Car extends Transport<DriverB> implements Competable {
 
     private Type type;
+
+    public Car(String brand, String model, double engineVolume, DriverB driver, List<Mechanic> mechanicList, Type type) {
+        super(brand, model, engineVolume, driver, mechanicList);
+        this.type = type;
+    }
 
     public Car(String brand, String model, double engineVolume, DriverB driver) {
         super(brand, model, engineVolume, driver);

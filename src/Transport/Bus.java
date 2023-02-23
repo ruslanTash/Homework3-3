@@ -1,9 +1,15 @@
 package Transport;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Bus extends Transport<DriverD> implements Competable {
     private Type type;
+
+    public Bus(String brand, String model, double engineVolume, DriverD driver, List<Mechanic> mechanicList, Type type) {
+        super(brand, model, engineVolume, driver, mechanicList);
+        this.type = type;
+    }
 
     public Bus(String brand, String model, double engineVolume, DriverD driver) {
         super(brand, model, engineVolume, driver);
@@ -20,6 +26,8 @@ public class Bus extends Transport<DriverD> implements Competable {
     public void setType(Type type) {
         this.type = type;
     }
+
+
 
     @Override
     public void startMoving() {
@@ -42,10 +50,6 @@ public class Bus extends Transport<DriverD> implements Competable {
 
     @Override
     public void passDiagnostic() throws TransportTypeException {
-        exception();
-    }
-
-    private void exception() throws TransportTypeException {
         try {
             throw new TransportTypeException();
         } catch (TransportTypeException e) {
