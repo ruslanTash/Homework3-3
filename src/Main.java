@@ -84,14 +84,18 @@ public class Main {
             queue.doMaintrance(transport);
         }
 
-//      Создайте множество водителей, чтобы в случае добавления одного и того же водителя в базу два раза, в консоль выводилась информация без повторов.
+
         Set<Driver> drivers = new HashSet<>();
         drivers.add(driverB);
         drivers.add(driverC);
         drivers.add(driverD);
         drivers.add(driverB);
 
-        System.out.println(drivers);
+
+        Iterator<Driver> iter = drivers.iterator();
+        while (iter.hasNext()) {
+            System.out.println(iter.next());
+        }
 
     }
 }
